@@ -1,75 +1,73 @@
-import { useState } from "react";
-import { Input, Button, Card, Row, Col, Typography, Empty } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import React from 'react';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
-const { Title, Paragraph, Text } = Typography;
+const { Header, Content, Footer, Sider } = Layout;
 
-const documents = [
-  {
-    id: 1,
-    title: "Giáo trình Toán Cao Cấp",
-    subject: "Toán học",
-    year: 2022,
-    type: "Giáo trình",
-    description: "Tài liệu cơ bản cho môn Toán Cao Cấp.",
-  },
-  {
-    id: 2,
-    title: "Đề thi cuối kỳ Vật lý 1",
-    subject: "Vật lý",
-    year: 2023,
-    type: "Đề thi",
-    description: "Đề thi chính thức học kỳ 1 năm 2023.",
-  },
-];
+const items1 = ['1', '2', '3'].map(key => ({
+  key,
+  label: `nav ${key}`,
+}));
 
-export default function HomePage() {
-  const [query, setQuery] = useState("");
+const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
+  const key = String(index + 1);
+  return {
+    key: `sub${key}`,
+    icon: React.createElement(icon),
+    label: `subnav ${key}`,
+    children: Array.from({ length: 4 }).map((_, j) => {
+      const subKey = index * 4 + j + 1;
+      return {
+        key: subKey,
+        label: `option${subKey}`,
+      };
+    }),
+  };
+});
 
-  const filteredDocs = documents.filter((doc) =>
-    doc.title.toLowerCase().includes(query.toLowerCase())
-  );
-
+const HomePage = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
   return (
-    <div style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
-      <Title level={2}>Tài liệu Đại học</Title>
-
-      <div style={{ display: "flex", gap: 8, marginBottom: 24 }}>
-        <Input
-          placeholder="Tìm kiếm tài liệu..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          allowClear
+    <Layout>
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          items={items1}
+          style={{ flex: 1, minWidth: 0 }}
         />
-        <Button type="primary" icon={<SearchOutlined />}>
-          Tìm
-        </Button>
+      </Header>
+      
+      <div style={{ padding: '0 48px' }}>
+        <Breadcrumb
+          style={{ margin: '16px 0' }}
+          items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]}
+        />
+        <Layout
+          style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}
+        >
+          <Sider style={{ background: colorBgContainer }} width={200}>
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
+              style={{ height: '100%' }}
+              items={items2}
+            />
+          </Sider>
+          <Content style={{ padding: '0 24px', minHeight: 280 }}>Content</Content>
+        </Layout>
       </div>
 
-      <Row gutter={[16, 16]}>
-        {filteredDocs.map((doc) => (
-          <Col xs={24} sm={12} key={doc.id}>
-            <Card
-              title={doc.title}
-              bordered
-              extra={<Text type="secondary">{doc.type}</Text>}
-              style={{ borderRadius: 12 }}
-            >
-              <Text type="secondary">
-                {doc.subject} • {doc.year}
-              </Text>
-              <Paragraph style={{ marginTop: 8 }}>{doc.description}</Paragraph>
-              <Button type="default">Xem chi tiết</Button>
-            </Card>
-          </Col>
-        ))}
-
-        {filteredDocs.length === 0 && (
-          <Col span={24} style={{ textAlign: "center", marginTop: 32 }}>
-            <Empty description="Không tìm thấy tài liệu nào" />
-          </Col>
-        )}
-      </Row>
-    </div>
+      <Footer style={{ textAlign: 'center' }}>
+        Ant Design ©{new Date().getFullYear()} Created by Ant UED
+      </Footer>
+    </Layout>
   );
-}
+};
+
+export default HomePage;
