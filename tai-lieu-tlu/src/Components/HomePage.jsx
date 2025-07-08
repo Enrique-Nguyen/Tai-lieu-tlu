@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { LaptopOutlined, NotificationOutlined, UserOutlined, BookOutlined, CodeOutlined, BankOutlined, ExperimentOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme, Card, Button } from 'antd';
 import documents from "../Data/sampleDocument.json";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items1 = ['Năm 1', 'Năm 2', 'Năm 3'].map((label, index) => ({
+const items1 = ['Năm 1', 'Năm 2', 'Năm 3', "Năm 4"].map((label, index) => ({
   key: String(index + 1),
   label: label,
 }));
@@ -23,8 +23,22 @@ const HomePage = () => {
     )
   ];
 
+  const getSubjectIcon = (subject) => {
+    const iconMap = {
+      'Đại số tuyến tính': BookOutlined,
+      'Cấu trúc dữ liệu và giải thuật': CodeOutlined,
+      'Kinh tế Chính trị': BankOutlined,
+      'Toán cao cấp': ExperimentOutlined,
+      'Lập trình': LaptopOutlined,
+      'Vật lý': ExperimentOutlined,
+      'Hóa học': ExperimentOutlined,
+    };
+    return iconMap[subject] || BookOutlined; // Default icon if subject not found
+  };
+
   const items2 = subjectsForSelectedYear.map((subject, index) => ({
     key: subject,
+    icon: React.createElement(BookOutlined),
     label: subject,
   }));
 
