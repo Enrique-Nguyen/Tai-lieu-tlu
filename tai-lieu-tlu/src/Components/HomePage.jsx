@@ -1,34 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, theme, Card, Button } from 'antd';
+import documents from "../Data/sampleDocument.json";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items1 = ['1', '2', '3'].map(key => ({
-  key,
-  label: `nav ${key}`,
+const items1 = ['Năm 1', 'Năm 2', 'Năm 3'].map((label, index) => ({
+  key: String(index + 1),
+  label: label,
 }));
 
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-  const key = String(index + 1);
-  return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
-    children: Array.from({ length: 4 }).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
-  };
-});
 
 const HomePage = () => {
+  const [selectedYear, setSelectedYear] = useState("1");
+  const [selectedSubject, setSelectedSubject] = useState(null);
+  
+  const subjectsForSelectedYear = [
+    ...new Set(
+      documents
+        .filter(doc => doc.year === selectedYear)
+        .map(doc => doc.subject)
+    )
+  ];
+
+  const items2 = subjectsForSelectedYear.map((subject, index) => ({
+    key: subject,
+    label: subject,
+  }));
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const filteredDocs = documents.filter(doc => {
+    return doc.year === selectedYear &&
+      (selectedSubject ? doc.subject === selectedSubject : true);
+  });
+
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
@@ -36,7 +44,8 @@ const HomePage = () => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['2']}
+          selectedKeys={[selectedYear]}
+          onClick={({ key }) => setSelectedYear(key)}
           items={items1}
           style={{ flex: 1, minWidth: 0 }}
         />
@@ -45,7 +54,11 @@ const HomePage = () => {
       <div style={{ padding: '0 48px' }}>
         <Breadcrumb
           style={{ margin: '16px 0' }}
-          items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]}
+          items={[
+            { title: 'Trang chủ' }, 
+            { title: `Năm ${selectedYear}` }, 
+            { title: selectedSubject || 'Tất cả môn học' }
+          ]}
         />
         <Layout
           style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}
@@ -53,18 +66,33 @@ const HomePage = () => {
           <Sider style={{ background: colorBgContainer }} width={200}>
             <Menu
               mode="inline"
-              defaultSelectedKeys={['1']}
-              defaultOpenKeys={['sub1']}
+              selectedKeys={[selectedSubject || '']}
+              onClick={({ key }) => setSelectedSubject(key)}
               style={{ height: '100%' }}
               items={items2}
             />
           </Sider>
-          <Content style={{ padding: '0 24px', minHeight: 280 }}>Content</Content>
+          <Content style={{ padding: '0 24px', minHeight: 280 }}>
+            {filteredDocs.map(doc => (
+              <Card
+                key={doc.id}
+                title={doc.title}
+                style={{ marginBottom: 16 }}
+                extra={
+                  <Button type="primary" href={doc.downloadLink} download>
+                    Tải về
+                  </Button>
+                }
+              >
+                <p>{doc.description}</p>
+              </Card>
+            ))}
+          </Content>
         </Layout>
       </div>
 
       <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        Tài liệu TLU ©{new Date().getFullYear()} Created by Enrique Nguyen.
       </Footer>
     </Layout>
   );
