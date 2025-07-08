@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "subject": "Đại số tuyến tính",
+    "title": "Giáo trình Đại số tuyến tính",
+    "description": "Tài liệu học môn Đại số tuyến tính năm 2, gồm các chương cơ bản về đại số tuyến tính.",
+    "downloadLink": "https://youtu.be/MQNRKX8GwPo?si=0nRyiLPRdOBUoevO",
+    "year": "2"
+  },
+  {
+    "id": 2,
+    "subject": "Cấu trúc dữ liệu và giải thuật",
+    "title": "Bài giảng Cấu trúc dữ liệu và giải thuật",
+    "description": "File slide và bài giảng môn CTDL-GT năm 1, phù hợp với chuyên ngành CNTT.",
+    "downloadLink": "https://youtu.be/MQNRKX8GwPo?si=0nRyiLPRdOBUoevO",
+    "year": "1"
+  },
+  {
+    "id": 3,
+    "subject": "Kinh tế Chính trị",
+    "title": "Tài liệu Kinh tế Chính trị",
+    "description": "Tổng hợp đề cương ôn thi và câu hỏi trắc nghiệm môn Kinh tế chính trị Mác - Lênin.",
+    "downloadLink": "https://youtu.be/MQNRKX8GwPo?si=0nRyiLPRdOBUoevO",
+    "year": "2"
+  }
+]
