@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined, BookOutlined, CodeOutlined, BankOutlined, ExperimentOutlined } from '@ant-design/icons';
+import { BookOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme, Card, Button } from 'antd';
 import documents from "../Data/sampleDocument.json";
 
