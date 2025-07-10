@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { BookOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme, Card, Button } from 'antd';
 import documents from "../Data/sampleDocument.json";
+import { Link } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -56,7 +57,7 @@ const Main = () => {
         <Breadcrumb
           style={{ margin: '16px 0' }}
           items={[
-            { title: 'Trang chủ' }, 
+            { href: "/", title : 'Trang chủ'}, 
             { title: `Năm ${selectedYear}` }, 
             { title: selectedSubject || 'Tất cả môn học' }
           ]}

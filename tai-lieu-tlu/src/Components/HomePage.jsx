@@ -1,6 +1,7 @@
 import "./HomePage.css";
 import { Typography, Button, Flex, FloatButton } from 'antd';
 import { GithubFilled, EnterOutlined, MailOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Link } from "react-router-dom";
 
 const { Title, Paragraph } = Typography;
 
@@ -40,11 +41,59 @@ export default function TrangChu() {
         </Paragraph>
       </Typography>
       <Flex gap="middle" wrap align="center" justify="center" >
-        <Button type="primary" size="large" icon={<EnterOutlined />}>Truy cập</Button>
-        <Button size="large" icon={<GithubFilled />} href="https://github.com/Enrique-Nguyen/Tai-lieu-tlu.git">Source code</Button>
+        <Button 
+          type="primary" 
+          size="large" 
+          icon={<EnterOutlined />}
+          style={{ 
+            height: '60px', 
+            fontSize: '18px', 
+            padding: '0 30px',
+            fontWeight: 'bold' 
+          }}
+        ><Link to="/Tai-lieu">
+          Truy cập
+          </Link>
+        </Button>
+        <Button 
+          size="large" 
+          icon={<GithubFilled />} 
+          href="https://github.com/Enrique-Nguyen/Tai-lieu-tlu.git" 
+          target="_blank"
+          style={{ 
+            height: '60px', 
+            fontSize: '18px', 
+            padding: '0 30px',
+            fontWeight: 'bold' 
+          }}
+        >
+          Source code
+        </Button>
       </Flex>
-      <FloatButton icon={<MailOutlined />} type="primary" style={{ insetInlineEnd: 24 }} />
-      <FloatButton icon={<QuestionCircleOutlined />} type="default" style={{ insetInlineEnd: 94 }} />
+      <FloatButton 
+        icon={<MailOutlined />} 
+        type="primary" 
+        size="large"
+        style={{ 
+          insetInlineEnd: 24,
+          width: '50px',
+          height: '50px',
+          fontSize: '24px'
+        }} 
+        description="Email"
+      />
+      <FloatButton 
+        icon={<QuestionCircleOutlined />} 
+        type="default" 
+        size="large"
+        style={{ 
+          insetInlineEnd: 114,
+          width: '50px',
+          height: '50px',
+          fontSize: '24px'
+        }}
+        description="Info"
+      />
     </div>
   )
 };
