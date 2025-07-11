@@ -22,5 +22,29 @@
     "description": "Tổng hợp đề cương ôn thi và câu hỏi trắc nghiệm môn Kinh tế chính trị Mác - Lênin.",
     "downloadLink": "https://youtu.be/MQNRKX8GwPo?si=0nRyiLPRdOBUoevO",
     "year": "2"
+  },
+  {
+    "id": 4,
+    "subject": "Nhập môn lập trình",
+    "title": "Bài giảng ngôn ngữ lập trình C",
+    "description": "Tổng quan về lập trình. Học lập trình với ngôn ngữ C.",
+    "downloadLink": "https://youtu.be/MQNRKX8GwPo?si=0nRyiLPRdOBUoevO",
+    "year": "1"
+  },
+  {
+    "id": 5,
+    "subject": "Tiếng Anh 1",
+    "title": "Bài giảng Tiếng Anh 1",
+    "description": "File slide và sách môn Tiếng Anh 1.",
+    "downloadLink": "https://youtu.be/MQNRKX8GwPo?si=0nRyiLPRdOBUoevO",
+    "year": "1"
+  },
+  {
+    "id": 6,
+    "subject": "Kĩ năng mềm và tinh thần khởi nghiệp",
+    "title": "Bài giảng môn kĩ năng mềmt",
+    "description": "File slide và bài giảng môn Kĩ năng mềm và tinh thần khởi nghiệp.",
+    "downloadLink": "https://youtu.be/MQNRKX8GwPo?si=0nRyiLPRdOBUoevO",
+    "year": "1"
   }
 ]
