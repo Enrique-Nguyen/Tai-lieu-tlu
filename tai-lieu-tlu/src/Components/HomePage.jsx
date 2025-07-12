@@ -42,6 +42,7 @@ export default function TrangChu() {
       </Typography>
       <Flex gap="middle" wrap align="center" justify="center" >
         <Button 
+          href="/Tai-lieu"
           type="primary" 
           size="large" 
           icon={<EnterOutlined />}
@@ -51,9 +52,8 @@ export default function TrangChu() {
             padding: '0 30px',
             fontWeight: 'bold' 
           }}
-        ><Link to="/Tai-lieu">
-          Truy cập
-          </Link>
+        >
+          Truy cập tài liệu
         </Button>
         <Button 
           size="large" 
