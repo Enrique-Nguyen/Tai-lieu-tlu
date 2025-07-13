@@ -45,15 +45,15 @@ export default function TrangChu() {
           type="primary" 
           size="large" 
           icon={<EnterOutlined />}
+          href="/Tai-lieu"
           style={{ 
             height: '60px', 
             fontSize: '18px', 
             padding: '0 30px',
             fontWeight: 'bold' 
           }}
-        ><Link to="/Tai-lieu">
+        >
           Truy cập
-          </Link>
         </Button>
         <Button 
           size="large" 
