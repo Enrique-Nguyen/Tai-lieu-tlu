@@ -45,7 +45,7 @@ export default function TrangChu() {
           type="primary" 
           size="large" 
           icon={<EnterOutlined />}
-          href="/Tai-lieu"
+          href="/Trang-chu"
           style={{ 
             height: '60px', 
             fontSize: '18px', 
