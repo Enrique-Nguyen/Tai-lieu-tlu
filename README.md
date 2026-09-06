@@ -22,13 +22,13 @@
 
 ## 🛠️ Tech Stack
 
-| Lớp | Công nghệ |
-|---|---|
-| Framework | [Next.js 16](https://nextjs.org) (App Router) |
-| UI | [React 19](https://react.dev), [Tailwind CSS v4](https://tailwindcss.com), [shadcn/ui](https://ui.shadcn.com) |
-| Backend / Database | [Supabase](https://supabase.com) (PostgreSQL + Auth + Storage) |
-| Language | TypeScript 5 |
-| Icons | [Lucide React](https://lucide.dev) |
+| Lớp                | Công nghệ                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Framework          | [Next.js 16](https://nextjs.org) (App Router)                                                                 |
+| UI                 | [React 19](https://react.dev), [Tailwind CSS v4](https://tailwindcss.com), [shadcn/ui](https://ui.shadcn.com) |
+| Backend / Database | [Supabase](https://supabase.com) (PostgreSQL + Auth + Storage)                                                |
+| Language           | TypeScript 5                                                                                                  |
+| Icons              | [Lucide React](https://lucide.dev)                                                                            |
 
 ## 📁 Cấu trúc dự án
 
@@ -100,26 +100,26 @@ Mở [http://localhost:3000](http://localhost:3000) trên trình duyệt.
 
 ## 📜 Scripts
 
-| Lệnh | Mô tả |
-|---|---|
-| `npm run dev` | Khởi chạy development server |
-| `npm run build` | Build production |
-| `npm run start` | Chạy production server |
-| `npm run lint` | Kiểm tra lỗi ESLint |
+| Lệnh            | Mô tả                        |
+| --------------- | ---------------------------- |
+| `npm run dev`   | Khởi chạy development server |
+| `npm run build` | Build production             |
+| `npm run start` | Chạy production server       |
+| `npm run lint`  | Kiểm tra lỗi ESLint          |
 
 ## 🔐 Phân quyền
 
-| Role | Quyền |
-|---|---|
-| `student` | Xem, đăng tải, bình luận, vote, lưu tài liệu |
+| Role        | Quyền                                                       |
+| ----------- | ----------------------------------------------------------- |
+| `student`   | Xem, đăng tải, bình luận, vote, lưu tài liệu                |
 | `moderator` | Tất cả quyền của student + duyệt/ẩn bài đăng, xử lý báo cáo |
-| `admin` | Toàn quyền, quản lý người dùng và hệ thống |
+| `admin`     | Toàn quyền, quản lý người dùng và hệ thống                  |
 
 ## 🌐 Deploy
 
 Dự án tương thích với các nền tảng hỗ trợ Node.js server:
 
-- **[Vercel](https://vercel.com)** *(khuyến nghị)* — import repo và thêm biến môi trường trong Project Settings
+- **[Vercel](https://vercel.com)** _(khuyến nghị)_ — import repo và thêm biến môi trường trong Project Settings
 - **Docker** — build image từ `next build` và chạy với Node.js
 - **VPS/Server** — chạy `npm run build && npm run start`
 
@@ -141,4 +141,4 @@ Dự án được phát hành dưới giấy phép [MIT](LICENSE).
 
 ---
 
-<p align="center">Được xây dựng với ❤️ bởi cộng đồng sinh viên TLU</p>
+<p align="center">Được xây dựng bởi cộng đồng sinh viên TLU ❤️</p>
